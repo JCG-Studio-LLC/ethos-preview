@@ -336,6 +336,10 @@ blockquote.pull cite { display: block; margin-top: .6em; font: 400 .92rem var(--
 /* Promo film */
 .film { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .film-frame { position: relative; }
+.films { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); }
+.films figure { margin: 0; }
+.films figcaption { margin-top: 16px; color: var(--muted); font-size: .98rem; }
+.films figcaption b { display: block; font: 500 1.2rem var(--serif); color: var(--green-deep); margin-bottom: 2px; }
 .film-frame video { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius); background: var(--green-ink); box-shadow: 0 30px 60px -30px rgba(23, 55, 51, .55); }
 .film-frame .garden-pin { width: 68px; height: 68px; right: -24px; top: -28px; z-index: 1; }
 
@@ -412,6 +416,7 @@ details.faq p { margin: 14px 0 0; color: var(--muted); max-width: 46em; }
 .form-note { margin: 0; color: var(--muted); font-size: .95rem; }
 .form .btn { justify-self: start; border: 0; cursor: pointer; font-family: inherit; }
 .form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
+@media (max-width: 739px) { .films { grid-template-columns: 1fr; gap: 36px; } }
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form .btn { justify-self: stretch; justify-content: center; } }
 .note { background: var(--cream); border-left: 4px solid var(--marigold); padding: 18px 22px; border-radius: 0 12px 12px 0; }
 .photo-tall { border-radius: var(--radius); width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; }
