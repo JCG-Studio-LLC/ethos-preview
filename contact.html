@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,100;1,9..144,300..600,100&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=16">
+<link rel="stylesheet" href="assets/site.css?v=17">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -68,10 +68,52 @@
 </section>
 
 <section id="start">
+  <div class="wrap grid-2 request">
+    <div>
+      <span class="eyebrow">Request an appointment</span>
+      <h2>Tell us how to reach you.</h2>
+      <p class="lede">Send this in and we’ll get back to you to find a time that works.</p>
+      <p>Would you rather talk? Call <a href="tel:+17853333793">785-333-3793</a>.</p>
+    </div>
+    <form class="card form" action="https://formsubmit.co/5c23d11724fe530d55c82d79dc328a0d" method="POST">
+      <input type="hidden" name="_subject" value="New appointment request from the website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://ethos.jcg.studio/thanks.html">
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Name<input type="text" name="Name" autocomplete="name" required></label>
+      <div class="form-row">
+        <label>Phone<input type="tel" name="Phone" autocomplete="tel" required></label>
+        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <label>I’m interested in
+        <select name="Interested in" data-interest>
+          <option>Therapy</option>
+          <option>Life coaching</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <div class="form-row">
+        <label>Best way to reach you
+          <select name="Best way to reach me">
+            <option>Call</option>
+            <option>Text</option>
+            <option>Email</option>
+          </select>
+        </label>
+        <label>Best time to reach you<input type="text" name="Best time to reach me" placeholder="Weekday mornings, after 3…"></label>
+      </div>
+      <p class="form-note">No need to include private health details.</p>
+      <button class="btn btn-primary" type="submit">Send request</button>
+    </form>
+  </div>
+</section>
+
+<section class="cream">
   <div class="wrap grid-3">
     <article class="card">
       <span class="eyebrow">1 · Reach out</span>
-      <h3>Call or email</h3>
+      <h3>Send the form, call or email</h3>
       <p><a href="tel:+17853333793" style="font-family:var(--serif);font-size:1.6rem;text-decoration:none">785-333-3793</a></p>
       <p><a href="mailto:diane@ethostherapyandlifecoaching.com">diane@ethostherapyandlifecoaching.com</a></p>
       <p style="color:var(--muted);font-size:.95rem">No need to include private health details. A sentence about what you’re looking for is plenty.</p>
@@ -172,6 +214,8 @@
 <script src="assets/garden.js?v=3" defer></script>
 <script src="assets/site.js?v=2" defer></script>
 <script>
+  // The coaching buttons link here with ?for=coaching, so the form starts on "Life coaching".
+  if (new URLSearchParams(location.search).get('for') === 'coaching') document.querySelector('[data-interest]').value = 'Life coaching';
   const t = document.querySelector('.nav-toggle'), n = document.getElementById('nav');
   t.addEventListener('click', () => { const o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
 </script>
